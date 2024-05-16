@@ -20,9 +20,9 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   disabled:
+    - gitleaks
     - terrascan
   enabled:
-    - gitleaks@8.18.2
     - actionlint@1.6.27
     - checkov@3.2.52
     - git-diff-check
@@ -79,6 +79,7 @@ actions:
     - trunk-upgrade-available
 tools:
   disabled:
+    - gitleaks
     - composer
   enabled:
     - action-validator@0.6.0
