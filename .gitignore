@@ -3,3 +3,4 @@
 /qemu-*-static*
 /.secrets
 /.github/cache
+/.php-cs-fixer.cache
