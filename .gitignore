@@ -2,3 +2,4 @@
 /Makefile.working
 /qemu-*-static*
 /.secrets
+/.github/cache

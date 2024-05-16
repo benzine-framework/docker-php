@@ -1,0 +1,27 @@
+name: Code Quality Check (Trunk)
+on:
+  workflow_call:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  trunk-check:
+    name: Trunk Check Runner
+    runs-on: self-hosted
+    permissions:
+      checks: write # For trunk to post annotations
+      contents: read # For repo checkout
+    steps:
+      - name: Checkout
+        if: ${{ !env.ACT }}
+        uses: actions/checkout@v4
+
+      - name: Trunk Check
+        if: ${{ !env.ACT }}
+        uses: trunk-io/trunk-action@v1
