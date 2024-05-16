@@ -1,4 +1,0 @@
-.idea
-docker-compose.override.yml
-vendor
-.php-cs-fixer.cache

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-sleep 10
-echo "Waiting for database before running sync-pull.."
-/usr/local/bin/wait-for-database
-echo "Database ready, running sync-pull."
-/sync/sync --pull
-
-sleep infinity

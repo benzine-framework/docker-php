@@ -1,7 +1,0 @@
-version: "2.4"
-services:
-  bouncer:
-    build:
-      context: .
-      target: bouncer
-    image: ghcr.io/benzine-framework/bouncer:latest

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-echo "Starting Swarm Agent"
-/app/agent
-sleep 30

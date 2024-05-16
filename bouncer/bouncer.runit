@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-sleep 3
-printf "\n\n\n\n"
-echo "Starting Bouncer"
-/app/bin/bouncer

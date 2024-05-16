@@ -1,4 +1,4 @@
-.idea
-/.php-cs-fixer.cache
-/.github/cache
+/.idea
+/Makefile.working
+/qemu-*-static*
 /.secrets
