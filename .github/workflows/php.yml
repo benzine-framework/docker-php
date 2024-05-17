@@ -83,14 +83,14 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: matthewbaggett
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: "Setup: Login to GHCR"
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: matthewbaggett
-          password: ${{ secrets.GHCR_PASSWORD }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/checkout@v4
 
@@ -146,14 +146,14 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: matthewbaggett
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: "Setup: Login to GHCR"
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: matthewbaggett
-          password: ${{ secrets.GHCR_PASSWORD }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Retag ${{ env.base_tag }}:${{ matrix.variant }}-${{ env.latest-stable-version }} to ${{ matrix.output_tag }}:${{ matrix.variant }}"
         if: ${{ github.ref == 'refs/heads/main' }}

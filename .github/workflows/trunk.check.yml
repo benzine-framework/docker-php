@@ -1,27 +1,33 @@
-name: Code Quality Check (Trunk)
+name: Trunk Check
+
+permissions: read-all
+
 on:
   workflow_call:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 11 * * 2" # 11am Patch Tuesday
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-
 jobs:
   trunk-check:
     name: Trunk Check Runner
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       checks: write # For trunk to post annotations
       contents: read # For repo checkout
     steps:
-      - name: Checkout
-        if: ${{ !env.ACT }}
+      - name: "Setup PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+      - name: "Checkout"
         uses: actions/checkout@v4
-
-      - name: Trunk Check
-        if: ${{ !env.ACT }}
+      - name: "Trunk Check"
         uses: trunk-io/trunk-action@v1

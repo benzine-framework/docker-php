@@ -1,9 +1,8 @@
---bind
---action-cache-path .github/cache/act/actions
---artifact-server-path .github/cache/act/artifacts
---artifact-server-port 34564
---cache-server-path .github/cache/act/cache
 --use-new-action-cache
+--action-cache-path=.github/cache/act/actions
+--cache-server-path=.github/cache/act/cache
+--artifact-server-path=.github/cache/act/artifacts
+--artifact-server-port=34010
 --platform self-hosted=ghcr.io/catthehacker/ubuntu:act-latest
 --platform ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
 --platform ubuntu-22.04=ghcr.io/catthehacker/ubuntu:act-22.04
