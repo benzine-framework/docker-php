@@ -1,8 +1,8 @@
 # checkov:skip=CKV_DOCKER_3 user cannot be determined at this stage.
 FROM marshall:build AS php-core
 LABEL maintainer="Matthew Baggett <matthew@baggett.me>" \
-      org.label-schema.vcs-url="https://github.com/benzine-framework/docker" \
-      org.opencontainers.image.source="https://github.com/benzine-framework/docker" \
+      org.label-schema.vcs-url="https://github.com/benzine-framework/docker-php" \
+      org.opencontainers.image.source="https://github.com/benzine-framework/docker-php" \
       org.opencontainers.image.description="Build of Marshall with PHP"
 
 ARG PHP_PACKAGES
