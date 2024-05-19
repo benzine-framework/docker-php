@@ -90,8 +90,8 @@ jobs:
             benzine/php:${{ matrix.variant }}-${{ matrix.version }}
           build-args: |
             ${{ steps.build_args.outputs.result }}
-          cache-from: ${{ env.DOCKER_CACHE_FROM }}
-          cache-to: ${{ env.DOCKER_CACHE_TO }}
+          cache-from: "${{ env.DOCKER_CACHE_FROM }},scope=${{ matrix.variant }}-${{ matrix.version }}"
+          cache-to: "${{ env.DOCKER_CACHE_TO }},scope=${{ matrix.variant }}-${{ matrix.version }}"
       - name: "Validate build"
         run: docker run --rm ghcr.io/benzine-framework/php:${{ matrix.variant }}-${{ matrix.version }} /usr/bin/install-report
   validate-dive-report:
