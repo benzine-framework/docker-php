@@ -8,6 +8,7 @@ LABEL maintainer="Matthew Baggett <matthew@baggett.me>" \
 ARG PHP_PACKAGES
 ARG COMPOSER_VERSION
 ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HOME=/root/.composer
 COPY core/install-report.sh /usr/bin/install-report
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo "Acquire::Retries \"5\";" > /etc/apt/apt.conf.d/80-retries && \

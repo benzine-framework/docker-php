@@ -74,6 +74,12 @@ jobs:
           ghcr_token: ${{ secrets.GITHUB_TOKEN }}
           docker_hub_user: matthewbaggett
           docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: Login to registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.PRIVATE_REGISTRY }}
+          username: ${{ secrets.PRIVATE_REGISTRY_USER }}
+          password: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v5
         name: "Build: Build & Push"
         with:
@@ -88,6 +94,7 @@ jobs:
             ghcr.io/benzine-framework/php:${{ matrix.variant }}-${{ matrix.version }}
             gone/php:${{ matrix.variant }}-${{ matrix.version }}
             benzine/php:${{ matrix.variant }}-${{ matrix.version }}
+            ${{ secrets.PRIVATE_REGISTRY }}/php:${{ matrix.variant }}-${{ matrix.version }}
           build-args: |
             ${{ steps.build_args.outputs.result }}
           cache-from: "${{ env.DOCKER_CACHE_FROM }},scope=${{ matrix.variant }}-${{ matrix.version }}"
